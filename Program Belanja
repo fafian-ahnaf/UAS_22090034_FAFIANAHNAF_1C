@@ -2,12 +2,12 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class Belanja {
+public class ProgramBelanja {
     private String name;
     private int cost;
     private int jum;
 
-    public Belanja(){}
+    public ProgramBelanja(){}
 
     public void setNamaBarang(String nama) {
         this.name = nama;
@@ -33,15 +33,16 @@ public class Belanja {
         return this.jum;
     }
 
-    public String CetakInvoice(ArrayList<Belanja> barang){
+    public String Cetakinvoice(ArrayList<ProgramBelanja> barang){
         Locale negara = new Locale.Builder().setLanguage("id").setRegion("ID").build();
-        NumberFormat rupiah = NumberFormat.getCurrencyInstance(negara);  
+        NumberFormat rupiah = NumberFormat.getCurrencyInstance(negara);
         int total = 0;
-        for (Belanja item : barang) {
+        for (ProgramBelanja item : barang) {
             System.out.println(item.nama());
             System.out.println(item.jumlah() + " * " + item.harga());
             total += (item.harga() * item.jumlah());
         }
         return rupiah.format(total);
     }
+
 }
